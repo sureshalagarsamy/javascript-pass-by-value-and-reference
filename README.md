@@ -68,3 +68,28 @@ Javascript is actually passing a reference to obj by value. <b>(Say that again..
 When you call changeThisValue(obj), you're creating two (completely independent) references to the same object. Outside of the function, you have ```obj```, and inside the function, you have ```param```. They both ```refer the same object in memory```, but the reference variables themselves are independent.
 
 >So, what's the answer? Technically (language internals), it's pass-by-value. In practice, I'd put it like this: Javascript is pass-by-reference for objects, 
+
+
+### Another simple example
+
+#### Pass by value
+
+```js
+let a = 1;
+let b = a;
+b = b + 2;
+console.log(a, b); // 1 3
+```
+The first statement `let a = 1` defines a variable `a` initialized with the number `1`.
+
+The second statement `let b = a` defines another variable `b` and initializes it with the `value of a` variable — which is passing by value. 
+
+#### Pass by reference
+
+```js
+let a = [1];
+let b = a;
+b.push(2);
+console.log(a, b); // [1, 2]  [1, 2]
+```
+When creating an object you’re given a `reference` to that `object`. If two variables hold the same reference, then `changing the object reflects in both variables`.
